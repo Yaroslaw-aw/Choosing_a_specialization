@@ -8,7 +8,22 @@
 
 
 
+// Метод ввода количества элементов массива с проверкой корректности ввода
+int EnterTheCountOfStrings(string message)
+{
+    int count;
+    bool correct_count = int.TryParse(Console.ReadLine(), out count);
 
+    if (!correct_count)
+    {
+        Console.WriteLine("Некорректный ввод, попробуйте ещё раз");
+        return EnterTheCountOfStrings(message);
+    }
+    else
+    {
+        return count;
+    }
+}
 
 // Метод заполнения массива строками
 string[] FillArrayOfStrings(int length)
