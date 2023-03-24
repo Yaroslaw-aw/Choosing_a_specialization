@@ -10,10 +10,15 @@
 
 
 
-
-
-
-
+// Метод заполнения массива строками
+string[] FillArrayOfStrings(int length)
+{
+    string[] words = new string[length];
+    for (int i = 0; i < length; i++)
+        words[i] = Input("Введите следующую строку");
+    Console.WriteLine();
+    return words;
+}
 
 
 // Метод заполнения строки
