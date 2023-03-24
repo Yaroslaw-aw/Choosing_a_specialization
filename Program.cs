@@ -8,8 +8,25 @@
 
 
 
+
+
+
+
+
+// Метод, который находит число подходящих слов в изначальном массиве
+int FindNumberOfRightWords(string[] _array, int _size)
+{    
+    int count = 0;     
+    foreach (string s in _array)
+    {
+        if (s.Length <= _size)
+            count++;
+    }
+    return count;    
+}
+
 // Метод ввода количества элементов массива с проверкой корректности ввода
-int EnterTheCountOfStrings(string message)
+int EnterTheCountOfStrings(string _message)
 {
     int count;
     bool correct_count = int.TryParse(Console.ReadLine(), out count);
@@ -17,7 +34,7 @@ int EnterTheCountOfStrings(string message)
     if (!correct_count)
     {
         Console.WriteLine("Некорректный ввод, попробуйте ещё раз");
-        return EnterTheCountOfStrings(message);
+        return EnterTheCountOfStrings(_message);
     }
     else
     {
@@ -26,10 +43,10 @@ int EnterTheCountOfStrings(string message)
 }
 
 // Метод заполнения массива строками
-string[] FillArrayOfStrings(int length)
+string[] FillArrayOfStrings(int _length)
 {
-    string[] words = new string[length];
-    for (int i = 0; i < length; i++)
+    string[] words = new string[_length];
+    for (int i = 0; i < _length; i++)
         words[i] = Input("Введите следующую строку");
     Console.WriteLine();
     return words;
