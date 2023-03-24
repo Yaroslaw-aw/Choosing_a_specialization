@@ -15,10 +15,4 @@
 
 
 
-// Метод заполнения строки
-string Input(string message)
-{
-    string str = Console.ReadLine();
-    return str;
-}
 
