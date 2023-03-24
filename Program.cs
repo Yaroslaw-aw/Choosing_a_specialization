@@ -7,17 +7,18 @@
 
 
 
-int numberOfElements = EnterTheCountOfStrings("Введите количество слов в изначальном массиве");     // ввод количества слов в изначальном массиве, который будем проверять
-string[] homeWork = FillArrayOfStrings(numberOfElements);                                           // заполнение изначального массива
-int size = EnterTheCountOfStrings("Введите длину слов, которые надо найти в изначальном массиве");  // задается длина слов, которые надо выбрать
-int length = FindNumberOfRightWords(homeWork, size);                                                // находится количество слов заданной длины
+int numberOfElements = EnterTheNumber("Введите количество слов в изначальном массиве");             // ввод количества слов в изначальном массиве, который будет проверяться
+string[] homeWork = FillArrayOfStrings(numberOfElements);                                           // заполнение массива, который будет проверяться
+int size = EnterTheNumber("Введите длину, равную или меньше которой надо найти слова в" +           // задается длина слов, которые надо выбрать
+                            " изначальном массиве");          
+int length = FindNumberOfRightWords(homeWork, size);                                                // нахождение количества слов заданной длины
 string[] result_array = CreateResultArray(homeWork, size, length);                                  // создаётся итоговый массив и заполняется найденным словами нужной длины
 Console.WriteLine($"[{string.Join(", ", homeWork)}] -> [{string.Join(", ", result_array)}]");       // вывод итогового массива
 
 
 
 
-// Метод заполнения итогового массива из строк, длина которых меньше, либо равна 3 элементам
+// Метод заполнения итогового массива из строк, длина которых меньше, либо равна 3 символам
 string[] CreateResultArray(string[] _array,  int _size, int _length = 0)
 {
     string[] _array_result = new string[_length];
@@ -33,8 +34,7 @@ string[] CreateResultArray(string[] _array,  int _size, int _length = 0)
     return _array_result;
 }
 
-
-// Метод, который находит число подходящих слов в изначальном массиве
+// Метод, который находит количество подходящих слов в изначальном массиве
 int FindNumberOfRightWords(string[] _array, int _size)
 {    
     int count = 0;     
@@ -46,8 +46,8 @@ int FindNumberOfRightWords(string[] _array, int _size)
     return count;    
 }
 
-// Метод ввода количества элементов массива с проверкой корректности ввода
-int EnterTheCountOfStrings(string _message)
+// Метод ввода целого числа с проверкой корректности ввода
+int EnterTheNumber(string _message)
 {
     int count;
     Console.WriteLine(_message);
@@ -56,7 +56,7 @@ int EnterTheCountOfStrings(string _message)
     if (!correct_count)
     {
         Console.WriteLine("Некорректный ввод, попробуйте ещё раз");
-        return EnterTheCountOfStrings(_message);
+        return EnterTheNumber(_message);
     }
     else
     {
@@ -70,12 +70,10 @@ string[] FillArrayOfStrings(int _length)
     string[] words = new string[_length];
     for (int i = 0; i < _length; i++)
     {
-        words[i] = Input("Введите следующую строку");
-        //Console.WriteLine();
+        words[i] = Input("Введите следующую строку");        
     }
     return words;
 }
-
 
 // Метод заполнения строки
 string Input(string message)
