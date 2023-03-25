@@ -18,7 +18,8 @@ Console.WriteLine($"[{string.Join(", ", homeWork)}] -> [{string.Join(", ", resul
 
 
 
-// Метод заполнения итогового массива из строк, длина которых меньше, либо равна 3 символам
+// Метод заполнения итогового массива из строк,
+// длина которых меньше, либо равна заданному числу символов
 string[] CreateResultArray(string[] _array,  int _size, int _length = 0)
 {
     string[] _array_result = new string[_length];
