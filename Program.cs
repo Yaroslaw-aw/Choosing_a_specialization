@@ -10,7 +10,7 @@
 int numberOfElements = EnterTheNumber("Введите количество слов в изначальном массиве");             // ввод количества слов в изначальном массиве, который будет проверяться
 string[] homeWork = FillArrayOfStrings(numberOfElements);                                           // заполнение массива, который будет проверяться
 int size = EnterTheNumber("Введите длину, равную или меньше которой надо найти слова в" +           // задается длина слов, которые надо выбрать
-                            " изначальном массиве");          
+                            " проверяемом массиве");          
 int length = FindNumberOfRightWords(homeWork, size);                                                // нахождение количества слов заданной длины
 string[] result_array = CreateResultArray(homeWork, size, length);                                  // создаётся итоговый массив и заполняется найденным словами нужной длины
 Console.WriteLine($"[{string.Join(", ", homeWork)}] -> [{string.Join(", ", result_array)}]");       // вывод итогового массива
